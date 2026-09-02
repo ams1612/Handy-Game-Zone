@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="tt.css">
+    <title>Table Tennis</title>
+</head>
+<body>
+
+     <div class="navbar">
+        <a href="/index.html" style="color: rgb(10, 0, 0);">Home</a>
+          
+        <hr>   
+    </div>
+
+  <div class="pong-game-container">
+    <!-- Level Control Header Bar -->
+    <div id="pong-header">
+        <div id="pong-score">Player: 0 | AI: 0</div>
+        <div id="pong-controls">
+            <button onclick="changePongDifficulty('easy')" id="pong-btn-easy" class="pong-btn active">Easy</button>
+            <button onclick="changePongDifficulty('hard')" id="pong-btn-hard" class="pong-btn">Hard</button>
+            <button onclick="resetPongMatch()" class="pong-btn-reset">Reset Score</button>
+        </div>
+    </div>
+    
+    <!-- Vertical Game Canvas Viewport Wrapper -->
+    <div class="canvas-wrapper">
+        <canvas id="pongCanvas" width="400" height="600"></canvas>
+        <!-- Start Game overlay screen -->
+        <div id="pong-start-overlay" onclick="startPongBall()">
+            <div class="start-text">Click / Tap to Serve Ball</div>
+        </div>
+    </div>
+    <div id="pong-mobile-tip">Swipe left/right anywhere inside the box to move your paddle</div>
+</div>
+<script src="tt.js"></script>
+</body>
+</html>

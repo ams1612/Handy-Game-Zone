@@ -1,0 +1,174 @@
+* {
+  box-sizing: border-box;
+}
+ 
+html {
+  touch-action: manipulation;
+  overscroll-behavior: none;
+}
+ 
+body {
+  margin: 0;
+  padding: 16px;
+  background: #1b1b1a;
+  font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  touch-action: manipulation;
+  overscroll-behavior: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+ 
+.game-wrap {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+ 
+.hud {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #cfcfcf;
+  gap: 8px;
+}
+ 
+.hud strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+ 
+.hud-actions {
+  display: flex;
+  gap: 6px;
+}
+ 
+.icon-btn {
+  background: #2c2c2a;
+  color: #ffffff;
+  border: 1px solid #444441;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+ 
+.icon-btn:active {
+  transform: scale(0.96);
+}
+ 
+.fuel-bar-outer {
+  width: 100%;
+  height: 10px;
+  background: #2c2c2a;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid #444441;
+}
+ 
+.fuel-bar-inner {
+  height: 100%;
+  width: 100%;
+  background: #ba7517;
+  transition: width 0.2s linear, background 0.2s linear;
+}
+ 
+canvas {
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  aspect-ratio: 340 / 520;
+  border-radius: 12px;
+  border: 1px solid #444441;
+  touch-action: none;
+  background: #3b6d11;
+}
+ 
+.status {
+  margin: 0;
+  font-size: 13px;
+  color: #a8a8a3;
+  text-align: center;
+}
+ 
+.controls {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+ 
+.dir-btn {
+  flex: 1;
+  background: #2c2c2a;
+  color: #ffffff;
+  border: 1px solid #444441;
+  border-radius: 10px;
+  padding: 20px 0;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+ 
+.dir-btn:active {
+  transform: scale(0.97);
+  background: #444441;
+}
+ 
+.tablewrap {
+  width: 100%;
+  display: none;
+}
+ 
+.table-title {
+  font-size: 13px;
+  color: #a8a8a3;
+  margin: 4px 0;
+}
+ 
+.score-table {
+  width: 100%;
+  font-size: 13px;
+  border-collapse: collapse;
+  color: #ffffff;
+}
+ 
+.score-table td {
+  padding: 4px 0;
+  border-top: 1px solid #444441;
+}
+ 
+.score-table td:last-child {
+  text-align: right;
+  font-weight: 600;
+}
+ 
+/* Mobile: extra tall steering buttons for easy thumb reach */
+@media (max-width: 480px), (pointer: coarse) {
+  .dir-btn {
+    padding: 26px 0;
+    font-size: 30px;
+  }
+  .status {
+    font-size: 12px;
+  }
+}
+ 
+/* Desktop / PC: mouse pointer, keep buttons present but a bit more compact */
+@media (min-width: 481px) and (pointer: fine) {
+  .game-wrap {
+    max-width: 360px;
+  }
+  .dir-btn {
+    padding: 16px 0;
+    font-size: 22px;
+  }
+}
+ 

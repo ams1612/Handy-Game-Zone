@@ -1,0 +1,136 @@
+body {
+    background-color: rgb(175, 98, 247);
+}
+
+/* Game Wrapper Layout */
+.pong-game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.navbar {
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 0 auto;
+}
+#pong-header {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+#pong-score {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+}
+
+#pong-controls {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+}
+
+.pong-btn {
+    padding: 8px 16px;
+    font-weight: bold;
+    border: 2px solid #ccc;
+    background: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.pong-btn.active {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
+}
+
+#pong-btn-hard.active {
+    background-color: #f44336;
+    color: white;
+    border-color: #f44336;
+}
+
+.pong-btn-reset {
+    padding: 8px 16px;
+    font-weight: bold;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Positioning Container for Overlay mapping */
+.canvas-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Vertical Portrait Canvas Viewport */
+#pongCanvas {
+    background-color: #111;
+    border: 4px solid #333;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    display: block;
+    width: 100%; 
+    height: auto; 
+}
+
+/* Intercept Click Screen Menu Overlay */
+#pong-start-overlay {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: opacity 0.2s;
+    z-index: 10;
+}
+
+.start-text {
+    color: #00FF00;
+    font-size: 22px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: blink 1.2s infinite;
+    text-align: center;
+}
+
+#pong-mobile-tip {
+    font-size: 12px;
+    color: #666;
+    margin-top: 8px;
+    text-align: center;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}

@@ -1,0 +1,173 @@
+  body {
+            background-color: rgb(175, 98, 247);
+            color: #ffffff;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .game-container {
+            text-align: center;
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .stats-panel {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #1e293b;
+            padding: 10px 15px;
+            border-radius: 8px;
+        }
+
+        #gameCanvas {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            background-color: #020617;
+            border: 4px solid #334155;
+            border-radius: 4px;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: -webkit-crisp-edges;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+        }
+
+        .controls-panel {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .menu-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            color: white;
+        }
+
+        #snake-sound-btn {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    }
+
+    #snake-sound-btn:hover {
+    background: #ff5252;
+    transform: translateY(-2px);
+    }
+
+    #snake-sound-btn.muted {
+    background: #06e23d;
+    }
+
+       h3 {
+            color: white;
+            text-align: center;
+        }
+
+        .dpad-spacer {
+            width: 55px;
+            height: 55px;
+        }
+
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:25px;
+}
+
+button{
+    border:2px 2px;
+    padding:14px 30px;
+    margin-top: 2px;
+    font-size:16px;
+    font-weight:bold;
+    border-radius:12px;
+    cursor:pointer;
+    transition:.25s;
+    background-color: #070e1f;
+}
+
+/* Start */
+
+#startBtn{
+    background:#22c55e;
+    color:white;
+}
+
+#startBtn:hover{
+    background:#16a34a;
+    transform:translateY(-2px);
+}
+
+/* Stop */
+
+#stopBtn{
+    background:#ef4444;
+    color:white;
+}
+
+#stopBtn:hover{
+    background:#dc2626;
+    transform:translateY(-2px);
+}
+
+/* Disabled */
+
+button:disabled{
+    background:#64748b;
+    cursor:not-allowed;
+    transform:none;
+}
+
+/* ===== Mobile ===== */
+
+@media(max-width:768px){
+
+    .game-container{
+        width:95%;
+        padding:15px;
+    }
+
+    h1{
+        font-size:28px;
+    }
+
+    .score-board{
+        flex-wrap:wrap;
+    }
+
+    .card{
+        min-width:110px;
+    }
+
+    canvas{
+        width:100%;
+        height:auto;
+    }
+
+    button{
+        width:45%;
+    }
+
+}

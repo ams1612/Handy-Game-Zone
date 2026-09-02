@@ -1,0 +1,159 @@
+
+body {
+    font-family: Arial, Helvetica, sans-serif ;
+    text-align: center;
+    background-color: rgb(175, 98, 247);
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+} 
+
+hr {
+    width: 500px;
+}
+
+#errors {
+    color: coral;
+}
+
+/* Desktop*/
+#board {
+  width: 540px;
+  height: 540px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+    
+}
+
+/*mobile*/
+@media (max-width: 500px) {
+#board {
+    width: 95vw;
+    height: 95vw;
+    max-width: 467px;
+    max-height: 467px;
+    
+    
+}
+#digits {
+    width: 95vw;
+}
+
+hr {
+    width: 95vw;
+}
+}
+
+.tile {
+    width: calc(100% / 9 - 2px);
+    height: calc(100% / 9 - 2px);
+    border: 1px solid rgb(133, 45, 45);
+    margin: 1px;
+    
+   
+
+    /* text*/
+
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+
+    
+
+#digits {
+    width: 95vw;
+    height: 50px;
+    max-width: 450px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.number {
+    flex: 1;
+    min-width: 35px;
+    height: 40px;
+    border: 1px solid rgb(133, 45, 45);
+    margin: 1px;
+
+    /* text*/
+
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.number-selected {
+    background-color: rgb(15, 15, 15);
+}
+
+.tile-start {
+    background-color: rgb(15, 15, 15);
+}
+
+.horizontal-line {
+    border-bottom: 2px solid rgb(238, 241, 5);
+}
+
+.vertical-line {
+    border-right: 2px solid rgb(221, 245, 7);
+}
+
+/* Responsive Flex Container */
+.controls-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;           /* Adds clean, even spacing between all buttons */
+    margin: 15px auto;
+    max-width: 360px;    /* Keeps everything neatly aligned within a 375px viewport */
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+/* Base Button Styles */
+.controls-container button {
+    flex: 1 1 100px;     /* Allows buttons to shrink and grow smoothly */
+    min-width: 100px;
+    padding: 12px 14px;  /* Slightly larger tap target for mobile fingers */
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.controls-container button:active {
+    transform: scale(0.98); /* Tactile feedback when pressed */
+}
+
+/* Button Colors */
+.btn-easy { background-color: #4CAF50; }
+.btn-easy:hover { background-color: #45a049; }
+
+.btn-hard { background-color: #f44336; }
+.btn-hard:hover { background-color: #da190b; }
+
+.btn-reset { background-color: #2196F3; }
+.btn-reset:hover { background-color: #0b7dda; }
+
+/* Mobile Optimization Breakpoint */
+@media (max-width: 360px) {
+    .controls-container button {
+        flex: 1 1 100%;  /* Forces buttons to stack perfectly into 3 neat rows on ultra-narrow screens */
+        margin-bottom: 2px;
+    }
+}

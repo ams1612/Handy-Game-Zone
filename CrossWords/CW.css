@@ -1,0 +1,495 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+#hidden-input {
+    position: fixed;
+    top: -1000px;
+    left: 0;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    font-size: 16px; /* prevents iOS auto-zoom on focus */
+}
+
+.container {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 100%;
+    width: 100%;
+    margin-top: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: #667eea;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+h2 {
+    text-align: center;
+}
+
+a {
+    text-align: center;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1em;
+
+}
+.screen {
+    animation: fadeIn 0.3s ease-in;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Difficulty Selection */
+.difficulty-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.diff-btn {
+    padding: 15px 25px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    color: white;
+    min-width: 100px;
+    flex: 1;
+    max-width: 150px;
+}
+
+.diff-btn.easy {
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+}
+
+.diff-btn.medium {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+}
+
+.diff-btn.hard {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+.diff-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.difficulty-info {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.difficulty-info p {
+    margin: 8px 0;
+    color: #555;
+    font-size: 0.9em;
+}
+
+/* Game Screen */
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.game-header h2 {
+    color: #667eea;
+    font-size: 1.4em;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.header-controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.back-btn, .new-game-btn, .sound-btn {
+    padding: 8px 15px;
+    font-size: 0.9em;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #667eea;
+    color: white;
+}
+
+.sound-btn {
+    background: #ff6b6b;
+    font-size: 1.2em;
+    padding: 8px 12px;
+    min-width: 44px;
+}
+
+.sound-btn:hover {
+    background: #ff5252;
+    transform: translateY(-2px);
+}
+
+.sound-btn.muted {
+    background: #95a5a6;
+}
+
+.back-btn:hover, .new-game-btn:hover {
+    background: #5568d3;
+    transform: translateY(-2px);
+}
+
+.game-container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.grid-container {
+    flex: 1;
+    min-width: 280px;
+}
+
+#crossword-grid {
+    display: grid;
+    gap: 1px;
+    background: #333;
+    padding: 3px;
+    border-radius: 8px;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.cell {
+    width: 35px;
+    height: 35px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    text-transform: uppercase;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.cell.black {
+    background: #333;
+    cursor: default;
+}
+
+.cell.selected {
+    background: #ffd700;
+    box-shadow: inset 0 0 0 2px #ff6b6b;
+}
+
+.cell.highlighted {
+    background: #e8f4f8;
+}
+
+.cell.correct {
+    background: #90EE90;
+    animation: correctPop 0.3s ease;
+}
+
+.cell.wrong {
+    background: #ff6b6b;
+    color: white;
+    animation: wrongShake 0.3s ease;
+}
+
+@keyframes correctPop {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes wrongShake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+.cell-number {
+    position: absolute;
+    top: 1px;
+    left: 2px;
+    font-size: 0.35em;
+    color: #666;
+    font-weight: normal;
+}
+
+/* Clues */
+.clues-container {
+    flex: 1;
+    min-width: 280px;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.clues-section {
+    margin-bottom: 15px;
+}
+
+.clues-section h3 {
+    color: #667eea;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.clues-section ul {
+    list-style: none;
+}
+
+.clues-section li {
+    padding: 6px 10px;
+    margin: 4px 0;
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9em;
+}
+
+.clues-section li:hover {
+    background: #667eea;
+    color: white;
+}
+
+.clues-section li.active {
+    background: #667eea;
+    color: white;
+}
+
+/* Win Message */
+.win-message {
+    text-align: center;
+    padding: 30px 20px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 12px;
+    margin-top: 15px;
+    color: white;
+    animation: popIn 0.5s ease;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.win-message h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.play-again-btn {
+    padding: 12px 30px;
+    font-size: 1.1em;
+    background: white;
+    color: #667eea;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.play-again-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile Responsive - Small Screens */
+@media (max-width: 600px) {
+    body {
+        padding: 5px;
+    }
+    
+    .container {
+        padding: 12px;
+        border-radius: 10px;
+    }
+    
+    h1 {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+    
+    .diff-btn {
+        padding: 12px 18px;
+        font-size: 1em;
+        min-width: 80px;
+    }
+    
+    .game-header {
+        margin-bottom: 10px;
+    }
+    
+    .game-header h2 {
+        font-size: 1.2em;
+    }
+    
+    .header-controls {
+        gap: 5px;
+    }
+    
+    .back-btn, .new-game-btn {
+        padding: 6px 10px;
+        font-size: 0.8em;
+    }
+    
+    .sound-btn {
+        padding: 6px 10px;
+        font-size: 1.1em;
+    }
+    
+    .game-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .grid-container {
+        min-width: 100%;
+        width: 100%;
+    }
+    
+    #crossword-grid {
+        padding: 2px;
+        gap: 1px;
+    }
+    
+    .cell {
+        width: 28px;
+        height: 28px;
+        font-size: 1.1em;
+    }
+    
+    .cell-number {
+        font-size: 0.3em;
+        top: 1px;
+        left: 1px;
+    }
+    
+    .clues-container {
+        min-width: 100%;
+        width: 100%;
+        max-height: 250px;
+        padding: 10px;
+    }
+    
+    .clues-section h3 {
+        font-size: 1em;
+    }
+    
+    .clues-section li {
+        font-size: 0.85em;
+        padding: 5px 8px;
+    }
+    
+    .difficulty-info {
+        font-size: 0.85em;
+        padding: 10px;
+    }
+}
+
+/* Extra Small Screens */
+@media (max-width: 350px) {
+    .cell {
+        width: 24px;
+        height: 24px;
+        font-size: 1em;
+    }
+    
+    h1 {
+        font-size: 1.3em;
+    }
+    
+    .game-header h2 {
+        font-size: 1.1em;
+    }
+    
+    .clues-container {
+        max-height: 200px;
+    }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+    .cell {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .diff-btn {
+        min-height: 44px;
+    }
+    
+    .back-btn, .new-game-btn, .sound-btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}

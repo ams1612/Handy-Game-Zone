@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Sky Striker - Fighter Jet Shooter</title>
+<link rel="stylesheet" href="SK.css">
+</head>
+<body>
+ 
+
+<div id="gameWrapper">
+  <canvas id="game"></canvas>
+ 
+  <div id="hud">
+    <div>
+      <div class="stat">Score: <span id="scoreVal">0</span></div>
+      <div class="stat">Level <span id="levelVal">1</span>: <span id="levelName">-</span></div>
+      <div class="stat" id="livesDisplay">❤❤❤</div>
+    </div>
+    <div style="text-align:right;">
+      <div class="stat">Health</div>
+      <div id="healthBarOuter"><div id="healthBarInner"></div></div>
+    </div>
+  </div>
+ 
+  <div id="bossBarWrap" class="hidden">
+    <div id="bossName">BOSS</div>
+    <div id="bossBarOuter"><div id="bossBarInner"></div></div>
+  </div>
+ 
+  
+ 
+  <div id="touchControls">
+    <div id="moveZone"></div>
+    <button id="fireBtn" type="button">FIRE</button>
+  </div>
+ 
+  <div id="overlay">
+    <div class="chnavbar">
+        <a href="/index.html" style="color: white;">Home</a>
+                
+    </div>
+    <h1>SKY KILLER</h1>
+    <p>Pilot your jet through 5 levels. Clear each squadron, beat the boss, survive.</p>
+    <p id="instructions">
+      Desktop: Arrow keys / WASD to move, Space to fire<br>
+      Mobile: Drag left side to move, tap FIRE to shoot<br>
+      Grab power-ups: 🛡 Shield · ⚡ Rapid Fire · ✳ Multi-shot · ❤ Heal
+    </p>
+    <button id="startBtn">START MISSION</button>
+
+    <button id="soundBtn">🔊</button>
+  
+  </div>
+  <button id="powerBtn">⚡ ON</button>
+  <div id="levelCompleteOverlay" class="hidden">
+    <h2 id="lcTitle">LEVEL 1 COMPLETE</h2>
+    <p id="lcStats">Score: 0</p>
+    <button id="continueBtn">CONTINUE</button>
+  </div>
+</div>
+ 
+<script src="SK.js"></script>
+</body>
+</html>

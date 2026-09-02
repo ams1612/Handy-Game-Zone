@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crossword Game - Multi Level</title>
+    <link rel="stylesheet" href="CW.css">
+</head>
+<body>
+    <!-- Hidden input for mobile keyboard -->
+<input type="text" id="mobile-keyboard-input" 
+       style="position: fixed; top: -1000px; opacity: 0;" 
+       maxlength="1" 
+       autocomplete="off" 
+       autocorrect="off" 
+       autocapitalize="characters"
+       inputmode="text">
+       
+    <div class="container">
+         
+         <a href="/index.html" style="color: rgb(17, 16, 16);"><h3>Home</h3></a>
+
+        <h1>🎯 Crossword Puzzle</h1>
+        
+        <!-- Difficulty Selection -->
+        <div id="difficulty-screen" class="screen">
+            <h2>Select Difficulty</h2>
+            <div class="difficulty-buttons">
+                <button class="diff-btn easy" onclick="startGame('easy')">Easy</button>
+                <button class="diff-btn medium" onclick="startGame('medium')">Medium</button>
+                <button class="diff-btn hard" onclick="startGame('hard')">Hard</button>
+            </div>
+            <div class="difficulty-info">
+                <p><strong>Easy:</strong> 5x5 grid, 8-10 words, 3-5 letters</p>
+                <p><strong>Medium:</strong> 8x8 grid, 12-15 words, 4-7 letters</p>
+                <p><strong>Hard:</strong> 10x10 grid, 18-22 words, 5-9 letters</p>
+            </div>
+        </div>
+        
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen hidden">
+            <div class="game-header">
+                <button onclick="showDifficulty()" class="back-btn">← Back</button>
+                <h2 id="difficulty-title">Easy Mode</h2>
+                <div class="header-controls">
+                    <button onclick="toggleSound()" class="sound-btn" id="sound-btn">🔊</button>
+                    <button onclick="newGame()" class="new-game-btn">🔄 New Game</button>
+                </div>
+            </div>
+            
+            <div class="game-container">
+                <div class="grid-container">
+                    <div id="crossword-grid"></div>
+                </div>
+                
+                <div class="clues-container">
+                    <div class="clues-section">
+                        <h3>Across</h3>
+                        <ul id="across-clues"></ul>
+                    </div>
+                    <div class="clues-section">
+                        <h3>Down</h3>
+                        <ul id="down-clues"></ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="win-message" class="win-message hidden">
+                <h2>🎉 Congratulations!</h2>
+                <p>You completed the puzzle!</p>
+                <button onclick="newGame()" class="play-again-btn">Play Again</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="CW.js"></script>
+</body>
+</html>

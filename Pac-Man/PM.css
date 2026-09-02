@@ -1,0 +1,148 @@
+body {
+  margin: 0;
+  background: rgb(175, 98, 247);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  gap: 12px;
+  color: white;
+  font-family: Arial, sans-serif;
+
+  overscroll-behavior: none;
+  touch-action: manipulation;
+}
+
+h1 {
+  color: yellow;
+}
+
+.chnavbar {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 10;
+}
+
+.home-link {
+  display: inline-block;
+  padding: 6px 12px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.home-link:active {
+  background: rgba(0, 0, 0, 0.7);
+  transform: scale(0.96);
+}
+
+canvas {
+  width: min(95vw, 500px);
+  height: auto;
+  max-width: 100%;
+  border: 2px solid #333;
+  background: #111;
+
+  touch-action: none;
+  display: block;
+}
+
+/* Sound button - always visible */
+#sound-btn {
+  background-color: white;
+  color: black;
+  border: 2px solid purple;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 10px auto;
+
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+
+  /* Ensure it is not hidden behind anything */
+  position: relative;
+  z-index: 5;
+}
+
+/* Optional: nicer hover only on devices that support hover */
+@media (hover: hover) {
+  #sound-btn:hover {
+    background-color: #eee;
+    transform: scale(1.05);
+  }
+}
+
+#scoreBoard {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#restartBtn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: yellow;
+  background-color: transparent;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 22px;
+
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+  z-index: 6;
+}
+
+/* ==========================
+   MOBILE CONTROLS
+========================== */
+
+#mobileControls {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin-top: 15px;
+}
+
+#mobileControls button {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  font-size: 20px;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#mobileControls button:active {
+  transform: scale(0.92);
+  box-shadow: none;
+}
+
+/* Show controls on small screens OR touch devices */
+@media (max-width: 768px), (pointer: coarse) {
+  #mobileControls {
+    display: flex;
+  }
+
+  /* Make sound button bigger and easier to tap on mobile */
+  #sound-btn {
+    padding: 12px 18px;
+    font-size: 16px;
+    margin: 12px auto 6px;
+  }
+}

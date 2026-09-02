@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sports Car Racer</title>
+<link rel="stylesheet" href="R.css">
+</head>
+<body>
+  <div class="game-wrap">
+
+     <div class="chnavbar">
+        <a href="/index.html" style="color: white;">Home</a>
+                
+    </div>
+    
+     <div class="hud">
+      <span>Score: <strong id="score">0</strong></span>
+      <span>Level: <strong id="level">1</strong></span>
+      <div class="hud-actions">
+        <button id="soundToggle" class="icon-btn" aria-label="Toggle sound">Sound: On</button>
+        <button id="restart" class="icon-btn" aria-label="Restart game">Restart</button>
+      </div>
+    </div>
+ 
+    <div class="fuel-bar-outer">
+      <div id="fuelbar" class="fuel-bar-inner"></div>
+    </div>
+ 
+    <canvas id="game" width="340" height="520"></canvas>
+ 
+    <p id="status" class="status">Use arrow keys (PC) or swipe / buttons (mobile) to steer</p>
+ 
+    <div class="controls">
+      <button id="left" class="dir-btn" aria-label="Steer left">&#9664;</button>
+      <button id="right" class="dir-btn" aria-label="Steer right">&#9654;</button>
+    </div>
+ 
+    <div id="tablewrap" class="tablewrap">
+      <p class="table-title">Best scores this session</p>
+      <table class="score-table">
+        <tbody id="scoretable"></tbody>
+      </table>
+    </div>
+  </div>
+  <script src="R.js"></script>
+</body>
+</html>
