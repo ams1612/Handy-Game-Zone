@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, Helvetica, sans-serif ;
+    text-align: center;
+    background-color: rgb(175, 98, 247);
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+} 
+
+
+
+.chess {
+    align-items: center;
+    
+}
+
+/* Clean layout panel styles optimized for 375px mobile viewports */
+#game-scoreboard-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 480px;
+    margin: 10px auto 5px auto;
+    font-family: sans-serif;
+    gap: 6px;
+}
+
+#game-status {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#white-captured, #black-captured {
+    font-size: 15px;
+    color: #f5f1f1;
+    text-align: center;
+    width: 100%;
+    padding: 2px 0;
+}
