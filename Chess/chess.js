@@ -183,7 +183,7 @@ function renderBoardUI() {
                 const typeWord = typeMap[pieceData.type];
                 
                 const img = document.createElement("img");
-                img.src = `Chess/images/${colorWord}-${typeWord}.png`;
+                img.src = `images/${colorWord}-${typeWord}.png`;
                 img.style.width = "100%";
                 img.style.height = "100%";
                 img.style.display = "block";
