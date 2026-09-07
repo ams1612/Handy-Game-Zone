@@ -17,7 +17,11 @@ function updateTttSoundButton() {
   if (!tttSoundBtn) return;
   tttSoundBtn.textContent = tttSoundEnabled ? "🔊 Sound ON" : "🔇 Sound OFF";
 }
-
+function disableBoxes() {
+    boxes.forEach((box) => {
+        box.disabled = true;
+    });
+}
 function playTttSound(name) {
   if (!tttSoundEnabled) return;
 
