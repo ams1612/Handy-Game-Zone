@@ -21,7 +21,7 @@ let soundEnabled = true;
 
 const sounds = {
     paddle: new Audio("sounds/paddle.mp3"),
-    wall: new Audio("sounds/wall.mp3"),
+    //wall: new Audio("sounds/wall.mp3"),
     score: new Audio("sounds/score.mp3"),
     start: new Audio("sounds/start.mp3")
 };
@@ -394,7 +394,7 @@ if (isBallPlaying) {
     if (ball.x - ball.radius < 0 || ball.x + ball.radius > canvas.width) {
         ball.velocityX = -ball.velocityX;
 
-        playGameSound(sounds.wall);
+       //playGameSound(sounds.wall);
     }
 
     // Determine target paddle strike zone bounding box checks (Top/Bottom checks now)
