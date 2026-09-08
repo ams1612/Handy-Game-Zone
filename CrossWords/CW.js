@@ -143,11 +143,11 @@ let audioContext = null;
 
 // Sound files - UPDATE THESE PATHS WITH YOUR FILES
 const soundFiles = {
-    click: '/sounds/click.mp3',      // General click sound
-    correct: '/sounds/correct.mp3',  // Correct answer
-    wrong: '/sounds/wrong.mp3',      // Wrong answer
-    select: '/sounds/select.mp3',    // Cell selection
-    win: '/sounds/win.mp3'           // Victory sound
+    click: 'sounds/click.mp3',      // General click sound
+    correct: 'sounds/correct.mp3',  // Correct answer
+    wrong: 'sounds/wrong.mp3',      // Wrong answer
+    select: 'sounds/select.mp3',    // Cell selection
+    win: 'sounds/win.mp3'           // Victory sound
 };
 
 // Preload audio files
