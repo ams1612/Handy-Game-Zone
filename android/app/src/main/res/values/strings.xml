@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Handy Game Zone</string>
+    <string name="title_activity_main">Handy Game Zone</string>
+    <string name="package_name">com.ams1612.handygamezone</string>
+    <string name="custom_url_scheme">com.ams1612.handygamezone</string>
+</resources>
