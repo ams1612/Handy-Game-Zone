@@ -19,9 +19,9 @@
   },
   "homepage": "https://github.com/ams1612/Handy-Game-Zone#readme",
   "dependencies": {
-    "@capacitor/android": "^8.5.1",
-    "@capacitor/cli": "^8.5.1",
-    "@capacitor/core": "^8.5.1",
+    "@capacitor/android": "^8.5.2",
+    "@capacitor/cli": "^8.5.2",
+    "@capacitor/core": "^8.5.2",
     "@capacitor/ios": "^8.5.1"
   }
 }
